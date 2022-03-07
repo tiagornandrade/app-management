@@ -1,0 +1,80 @@
+{% include 'main.html' %}
+
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card card-body">
+                            <h4 class="card-title">Dados do Ciclo</h4>
+                            <br>
+                            <form class="form-horizontal m-t-30" action="editar_ciclo" method="POST">
+                                {% for ciclo in ciclo %}
+                                <input type="hidden" name="id" value="{{ ciclo['id_ciclo'] }}"/>
+                                <div class="form-group">
+                                    <label for="documento">Nome do Ciclo: </label>
+                                    <input type="text" class="form-control" name="nome_ciclo" id="nome_ciclo" value="{{ ciclo.nome_ciclo }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="data">Data de Início: </label>
+                                    <input type="text" class="form-control" name="data_inicio" id="data_inicio" value="{{ ciclo.data_inicio }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="historico">Data de Conclusão: </label>
+                                    <input type="text" class="form-control" name="data_fim" id="data_fim" value="{{ ciclo.data_fim }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="descricao">Descrição: </label>
+                                    <input type="text" class="form-control" name="descricao" id="descricao" value="{{ ciclo.descricao }}">
+                                </div>
+                                <div class="form-group">
+                                    <label>Concluir Ciclo</label>
+                                    <select class="custom-select col-12" id="ciclo_completo" name="ciclo_completo"  value="{{ ciclo.ciclo_completo }}"required>
+                                        <option selected>Selecione...</option>
+                                        <option value="Sim">Sim</option>
+                                        <option value="Não">Não</option>
+                                    </select>
+                                </div>
+                                {% endfor %}
+                                <button type="submit" href="editar_ciclo" class="btn btn-success"><i class="fa fa-save mr-1"></i>Atualizar</button>
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-ban mr-1"></i>Cancelar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <br><br>
+            <!-- <footer class="footer text-center">
+                All Rights Reserved by Nice admin. Designed and Developed by
+                <a href="https://wrappixel.com">WrapPixel</a>.
+            </footer> -->
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->

@@ -1,0 +1,78 @@
+{% include 'main.html' %}
+
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card card-body">
+                            <h4 class="card-title">Dados do Ciclo</h4>
+                            <br>
+                            <div class="table-responsive">
+                                <table id="example" class="table table-striped table-sm">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Nome do Ciclo</th>
+                                            <th>Data de Início</th>
+                                            <th>Data de Fim</th>
+                                            <th>Descrição</th>
+                                            <th>Completo</th>
+                                            <th>Ação</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      {% for ciclo in ciclo %}
+                                        <tr>
+                                            <td>{{ ciclo['nome_ciclo'] }}</td>
+                                            <td>{{ ciclo['data_inicio'] }}</td>
+                                            <td>{{ ciclo['data_fim'] }}</td>
+                                            <td>{{ ciclo['descricao'] }}</td>
+                                            <td>{{ ciclo['ciclo_completo'] }}</td>
+                                            <td>
+                                              <a type="button" href="editar_ciclo?id={{ciclo.id_ciclo}}" class="btn btn-success">Editar</a>
+                                              <a type="button" href="./excluir_ciclo?id={{ciclo.id_ciclo}}" class="btn btn-danger">Excluir</a>
+                                            </td>
+                                      {% endfor %}                
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <br><br>
+            <!-- <footer class="footer text-center">
+                All Rights Reserved by Nice admin. Designed and Developed by
+                <a href="https://wrappixel.com">WrapPixel</a>.
+            </footer> -->
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->

@@ -1,0 +1,111 @@
+{% include 'main.html' %}
+
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card card-body">
+                            <h4 class="card-title">Dados da Tarefa</h4>
+                            <br>
+                            <form class="form-horizontal m-t-30" action="tarefa" method="POST">
+                                <div class="form-group">
+                                    <label class="control-label" for="date">Data</label>
+                                    <input type="date" class="form-control" id="data" name="data" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="appt">Selecine a hora:</label>
+                                    <input type="time" id="time" name="time">
+                                </div>
+                                <div class="form-group">
+                                    <label>Ciclo</label>
+                                    <select class="custom-select col-12" id="ciclo", name="ciclo">
+                                        <option selected>Escolha aqui o ciclo...</option>
+                                        {% for ciclo in ciclo %} 
+                                        <option>{{ ciclo.nome_ciclo }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tarefa</label>
+                                    <input type="text" id="nome_tarefa" name="nome_tarefa" class="form-control" placeholder="Insira aqui o nome da tarefa...">
+                                </div>
+                                <div class="form-group">
+                                    <label>Cliente</label>
+                                    <select class="custom-select col-12" id="nome_cliente", name="nome_cliente">
+                                        <option selected>Escolha aqui o cliente...</option>
+                                        {% for cliente in cliente%} 
+                                        <option>{{ cliente.nome_cliente }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Projeto</label>
+                                    <select class="custom-select col-12" id="nome_projeto", name="nome_projeto">
+                                        <option selected>Escolha aqui o projeto...</option>
+                                        {% for projeto in projeto%} 
+                                        <option>{{ projeto.nome_projeto }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Líder</label>
+                                    <select class="custom-select col-12" id="lider_projeto", name="lider_projeto">
+                                        <option selected>Escolha aqui o nome do líder do projeto...</option>
+                                        {% for lider in lider%} 
+                                        <option>{{ lider.lider_projeto }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <!-- <div class="form-group">
+                                    <label>Categoria</label>
+                                    <input type="text" id="categoria" name="categoria" class="form-control" placeholder="Insira aqui a categoria do projeto...">
+                                </div> -->
+                                <div class="form-group">
+                                    <label>Descrição</label>
+                                    <textarea id="descricao" name="descricao" class="form-control" rows="2" placeholder="Insira uma descrição sobre o projeto..."></textarea>
+                                </div>
+                                <br>
+                                <div class="button">
+                                    <button type="submit" class="btn btn-success">Salvar Tarefa</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <br><br>
+            <!-- <footer class="footer text-center">
+                All Rights Reserved by Nice admin. Designed and Developed by
+                <a href="https://wrappixel.com">WrapPixel</a>.
+            </footer> -->
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->

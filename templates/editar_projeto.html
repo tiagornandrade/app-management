@@ -1,0 +1,84 @@
+{% include 'main.html' %}
+
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card card-body">
+                            <h4 class="card-title">Dados do Projeto</h4>
+                            <br>
+                            <form class="form-horizontal m-t-30" action="editar_projeto" method="POST">
+                                {% for projeto in projeto %}
+                                <input type="hidden" name="id" value="{{ projeto['id_projeto'] }}"/>
+                                <div class="form-group">
+                                    <label for="movimento">Nome do Projeto: </label>
+                                    <input type="text" class="form-control" name="nome_projeto" id="nome_projeto" value="{{ projeto.nome_projeto }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="data">Tipo do Projeto: </label>
+                                    <input type="text" class="form-control" name="tipo_projeto" id="tipo_projeto" value="{{ projeto.tipo_projeto }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="documento">Nome do Cliente: </label>
+                                    <input type="text" class="form-control" name="nome_cliente" id="nome_cliente" value="{{ projeto.nome_cliente }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="credito">Nome do Líder: </label>
+                                    <input type="text" class="form-control" name="lider_projeto" id="lider_projeto" value="{{ projeto.lider_projeto }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="debito">Categoria do Projeto: </label>
+                                    <input type="text" class="form-control" name="categoria_projeto" id="categoria_projeto" value="{{ projeto.categoria_projeto }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="valor-hora">Valor Hora: </label>
+                                    <input type="text" class="form-control" name="valor_hora" id="valor_hora" value="{{ projeto.valor_hora }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="debito">Descrição: </label>
+                                    <input type="text" class="form-control" name="descricao" id="descricao" value="{{ projeto.descricao }}">
+                                </div>
+                                {% endfor %}
+                                <button type="submit" href="editar_projeto" class="btn btn-success"><i class="fa fa-save mr-1"></i>Atualizar</button>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-save mr-1"></i>Cancelar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <br><br>
+            <!-- <footer class="footer text-center">
+                All Rights Reserved by Nice admin. Designed and Developed by
+                <a href="https://wrappixel.com">WrapPixel</a>.
+            </footer> -->
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
