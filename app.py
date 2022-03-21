@@ -1,12 +1,12 @@
 from flask import Flask, render_template, url_for, request, session, redirect
-from datetime import date, datetime
 from flask.wrappers import Response
+from datetime import date, datetime
+from matplotlib.style import use
 import pyodbc
 import json
 
 
 app = Flask(__name__)
-
 
 server = '192.168.0.2' 
 database = 'db_projetos' 
@@ -45,28 +45,36 @@ def get_ciclo():
 
 @app.route('/')
 def index():
-    # if 'email' in session:
+    # if 'username' in session:
     #     return 'Você está logado como ' + session['username']
-
     return render_template('login.html')
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     # msg = ''
-    # if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
-    #     # Create variables for easy access
-    #     email       = request.form['email']
-    #     password    = request.form['password']
+    if request.method == 'POST':
+    #  and 'username' in request.form and 'password' in request.form:
+        # Create variables for easy access
+        username    = request.form['username']
+        password    = request.form['password']
 
-    #     cursor.execute("SELECT * FROM usuario WHERE email = ? AND password = ?", email,password)
-    #     user = cursor.fetchone()
+        cursor.execute("SELECT * FROM usuario WHERE username = ? AND password = ?", username,password)
+        user = cursor.fetchone()
+        user_list = [row for row in user if row]
 
-    #     if 'email' in session:
-    #         return 'Você está logado como ' + session['email']
-    #     else:
-    #         msg = 'Email/senha Incorreto!'
-    # , msg=msg
-    return render_template('index.html')
+    msg = None
+    if request.method == 'POST':
+        if request.form['username'] != user_list[1] or request.form['password'] != user_list[2]:
+            msg = ''
+        else:
+            session['username'] = request.form['username']
+            return redirect(url_for('home'))
+    return render_template('login.html', msg = msg)
+
+@app.route('/logout', methods=['POST', 'GET'])
+def logout():
+    session.pop('username', None)
+    return redirect(url_for('login'))
 
 @app.route('/esqueceu-senha')
 def forgot_password():
@@ -75,8 +83,7 @@ def forgot_password():
 @app.route('/registrar', methods=['POST', 'GET'])
 def registrar():
     msg = ''
-    if request.method == 'POST':
-    #  and 'email' in request.form and 'password' in request.form and 'first_name' in request.form and 'last_name' in request.form:      
+    if request.method == 'POST': 
         email       = request.form['email']
         password    = request.form['password']
         first_name  = request.form['first_name']
@@ -92,6 +99,12 @@ def registrar():
         None
 
     return render_template('registrar.html', msg=msg)
+
+@app.route('/perfil', methods=['POST', 'GET'])
+def perfil():
+    cursor.execute('SELECT * FROM usuario')
+    usuario = cursor.fetchall()
+    return render_template('perfil.html', usuario=usuario)
 
 @app.route('/home')
 def home():
@@ -371,7 +384,6 @@ def suprimentos():
 @app.route('/teste')
 def teste():
     return render_template('teste.html')
-
 
 if __name__ == "__main__":
     app.secret_key = "app-management-2"

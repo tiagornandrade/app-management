@@ -41,16 +41,16 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Bem vindo de volta!</h1>
                                     </div>
-                                    <form class="user">
-                                        <!-- action="login" method="POST" -->
+                                    <form class="user" action="{{ url_for('login') }}" method="POST">
+                                    <div class="msg">{{ msg }}</div>
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Insira o endereço de e-mail...">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="username" name="username" aria-describedby="emailHelp"
+                                                placeholder="Insira o seu usuário...">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Senha">
+                                                id="password" name="password" placeholder="Senha">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -58,10 +58,8 @@
                                                 <label class="custom-control-label" for="customCheck">Lembre de mim</label>
                                             </div>
                                         </div>
-                                        <!-- <a href="index class="btn btn-primary btn-user btn-block">Login</button> -->
-                                        <a class="button" href="home">
-                                            <div class="btn btn-primary btn-user btn-block">Login</div>
-                                        </a>
+                                        
+                                        <input type="submit" class="btn btn-primary btn-user btn-block" value="Login">
                                         <hr>
                                         <a href="home" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login com Google
