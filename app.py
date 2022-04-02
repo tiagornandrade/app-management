@@ -8,10 +8,10 @@ import json
 
 app = Flask(__name__)
 
-server = '192.168.0.2' 
-database = 'db_projetos' 
-username = 'sa' 
-password = 'SenhaDev1234' 
+server   = ${{ secrets.server }}
+database = ${{ secrets.database }}
+username = ${{ secrets.username }}
+password = ${{ secrets.password }}
 
 conn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
 
